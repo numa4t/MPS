@@ -26,9 +26,9 @@ public class MainActivity2Registro extends AppCompatActivity {
 
     Button btnCrearUsuario;
 
-    private String dni, name, lastName;
+    private String dni, name, lastName, email;
 
-    private EditText db_ci, db_nombre, db_apellido, db_contrasena;
+    private EditText db_ci, db_nombre, db_apellido, db_mail;
 
     private static final String TAG = "mpsusers";
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -41,6 +41,7 @@ public class MainActivity2Registro extends AppCompatActivity {
         db_ci = (EditText) findViewById(R.id.editTextNumberCI);
         db_nombre = (EditText) findViewById(R.id.editTextNombre);
         db_apellido = (EditText) findViewById(R.id.editTextApellido);
+        db_mail = (EditText) findViewById(R.id.editTextTextEmail);
 
 
 
@@ -54,12 +55,14 @@ public class MainActivity2Registro extends AppCompatActivity {
                 dni = db_ci.getText().toString();
                 name = db_nombre.getText().toString();
                 lastName = db_apellido.getText().toString();
+                email = db_mail.getText().toString();
 
                 Map<String, Object> users = new HashMap<>();
 
                 users.put("CI", dni);
                 users.put("Nombre", name);
                 users.put("Apellido", lastName);
+                users.put("Email", db_mail);
 
 
                 db.collection("users")
@@ -82,6 +85,7 @@ public class MainActivity2Registro extends AppCompatActivity {
                 intent.putExtra("ci",dni);
                 intent.putExtra("name",name);
                 intent.putExtra("lastname",lastName);
+                intent.putExtra("email",email);
                 startActivity(intent);
 
 

@@ -16,24 +16,26 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuUsuario extends AppCompatActivity {
 
-    private TextView mtextLastName, mtextName, mtextCI, bienvenido;
+    private TextView mtextLastName, mtextName, mtextCI, bienvenido, mMail;
 
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference referencia = database.getReference("message");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_usuario);
 
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference referencia = database.getReference();
 
         bienvenido = (TextView) findViewById(R.id.bien);
         mtextName = (TextView) findViewById(R.id.textName);
         mtextCI = (TextView) findViewById(R.id.editTextNumberCI);
         mtextLastName = (TextView) findViewById(R.id.textLastName);
+        mMail = (TextView) findViewById(R.id.editTextTextEmail);
 
-        /*String ci = getIntent().getStringExtra("ci");
+        String ci = getIntent().getStringExtra("ci");
         mtextCI.setText(ci);
 
         String name = getIntent().getStringExtra("name");
@@ -43,25 +45,32 @@ public class MenuUsuario extends AppCompatActivity {
         mtextLastName.setText(lastname);
 
         String bien = getIntent().getStringExtra("name");
-        bienvenido.setText("Bienvend@ "+ bien);*/
+        bienvenido.setText("Bienvend@ "+ bien);
+
+        String mail = getIntent().getStringExtra("email");
+        mMail.setText(mail);
 
 
-        referencia.child("users").addValueEventListener(new ValueEventListener() {
+
+        /*referencia.child("users").equalTo(R.id.editTextNumberCI).addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) { /*Con esto accedo a ciertos atributos del objeto users*/
+            public void onDataChange(@NonNull DataSnapshot snapshot) { /*Con esto accedo a ciertos atributos del objeto users
                 if (snapshot.exists()) {
                     String Nombre = snapshot.child("Nombre").getValue().toString();
                     String Apellido = snapshot.child("Apellido").getValue().toString();
                     String CI = snapshot.child("CI").getValue().toString();
+                    String bien = snapshot.child("Nombre").getValue().toString();
                     mtextName.setText(Nombre);
                     mtextLastName.setText(Apellido);
                     mtextCI.setText(CI);
+                    bienvenido.setText("Bienvend@ "+ bien);
+
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
-        });
+        });*/
     }
 }
 

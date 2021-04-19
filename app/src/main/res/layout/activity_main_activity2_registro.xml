@@ -63,28 +63,17 @@
         app:layout_constraintStart_toStartOf="@+id/editTextApellido"
         app:layout_constraintTop_toBottomOf="@+id/editTextApellido" />
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNumberCI"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNumberCI"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberCI" />
-
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="0dp"
+        android:layout_width="285dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="48dp"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPassword"
-        app:layout_constraintEnd_toEndOf="@+id/spinner2"
-        app:layout_constraintStart_toStartOf="@+id/spinner2"
-        app:layout_constraintTop_toBottomOf="@+id/spinner2" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextEmail"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextEmail"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextEmail" />
 
     <EditText
         android:id="@+id/editTextTextPassword2"
@@ -108,5 +97,18 @@
         app:layout_constraintEnd_toEndOf="@+id/editTextTextPassword2"
         app:layout_constraintStart_toStartOf="@+id/editTextTextPassword2"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+
+    <EditText
+        android:id="@+id/editTextTextEmail"
+        android:layout_width="280dp"
+        android:layout_marginTop="8dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNumberCI"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/editTextNumberCI"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberCI" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
