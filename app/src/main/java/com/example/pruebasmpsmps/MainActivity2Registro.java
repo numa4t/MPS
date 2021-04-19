@@ -62,7 +62,7 @@ public class MainActivity2Registro extends AppCompatActivity {
                 users.put("CI", dni);
                 users.put("Nombre", name);
                 users.put("Apellido", lastName);
-                users.put("Email", db_mail);
+                users.put("Email", email);
 
 
                 db.collection("users")
